@@ -1,0 +1,9 @@
+[k , ~]=size(coord);
+[f , ~]=size(conn);
+[a, ~]=size(bearing);
+A_mat = zeros(2*k,a+f);
+F_mat = zeros(2*k,1);
+A_mat = updateA_withbearing(A_mat,bearing);
+A_mat = updateA_withtension (A_mat, coord, conn, a);
+F_mat = updateF(F_mat, F);
+Sol = -1*(inv(A_mat)*F_mat)
