@@ -1,4 +1,5 @@
 function plottruss(truss)
+    subplot(2,1,1);
     hold on
     for i = 1: length(truss.conn)
         x = [truss.coord(truss.conn (i,1),1) truss.coord(truss.conn (i,2),1)];

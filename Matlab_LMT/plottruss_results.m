@@ -1,4 +1,5 @@
 function plottruss_results(truss,Sol,a)
+    subplot(2,1,2)
     hold on
     for i = 1: length(Sol)
         if Sol(i)> 1e-15
@@ -31,13 +32,13 @@ function plottruss_results(truss,Sol,a)
         
     end
     axis equal
-    legend('truss')
+    % legend('truss')
     % for i = 1: length(truss.coord)
     %     text(truss.coord(i,1),truss.coord(i,2),string(i))
     % end
     [l ~] = size(truss.F);
     for i =1 : l
-        quiver (truss.coord(truss.F(i),1),truss.coord(truss.F(i),2),truss.F(i,2), truss.F(i,3),"Color", "Black")
+        quiver (truss.coord(truss.F(i),1),truss.coord(truss.F(i),2),truss.F(i,2), truss.F(i,3),"Color", "Black");
         legend('off')
         
     end
