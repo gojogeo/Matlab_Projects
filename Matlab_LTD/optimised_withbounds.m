@@ -1,5 +1,5 @@
-function u_bounds = optimised_withbounds(EA, nNode, nTruss,coord, conn, boundaryCond, force)
-    x0 = ones(nTruss,1);
+function [u_bounds, x_opt] = optimised_withbounds(EA, nNode, nTruss,coord, conn, boundaryCond, force)
+    x0 =ones(nTruss,1);
     lb = 0.1 * x0;
     ub = 2.0 * x0;
     targetnode = 2*force(1);

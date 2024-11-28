@@ -1,13 +1,13 @@
-function plottruss(truss)
+function plottruss_nonoptimised(truss)
     
     hold on
     for i = 1: length(truss.conn)
         x = [truss.coord(truss.conn (i,1),1) truss.coord(truss.conn (i,2),1)];
         y = [truss.coord(truss.conn (i,1),2) truss.coord(truss.conn (i,2),2)];
-        plot(x,y,'o-k', 'Color','black', 'LineWidth',1)
+        plot(x,y,'o-k', 'Color','blue', 'LineWidth',1)
         xlabel = (x(1)+x(2))/2;
         ylabel = (y(1)+y(2))/2;
-        text (xlabel,ylabel,string(i))
+        %text (xlabel,ylabel,string(i))
     end
     axis equal
     [i ~] = size(truss.bearing);
