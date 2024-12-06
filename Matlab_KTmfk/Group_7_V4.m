@@ -19,7 +19,7 @@ close
 clear
 run("subtask5.m")
 Print_Results(x_opt, EA, nNode, nTruss, coord, conn, boundaryCond, force, targetnode)
-waitforbuttonpress()
+waitforbuttonpress     ()
 close
 clear
 run("subtask7.m")

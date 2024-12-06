@@ -11,7 +11,7 @@ function Print_Results(x_opt, EA, nNode, nTruss, coord, conn, boundaryCond, forc
    
     Y = abs(u(yDOF))
     EA_scaled
-    u
+    u'
     x_opt
 
    
