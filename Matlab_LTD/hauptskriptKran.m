@@ -39,7 +39,7 @@ plotteResultate(resOde45);                             % Resultate plotten
 
 % Film
 
-%XXX;
+filmSpannungen(resOde45);
 
 
 

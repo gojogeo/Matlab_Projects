@@ -21,8 +21,8 @@ nt = size(sigma, 3);                                % Zeitdimension
 
 % =========================================================================
 
-S_min = XXX;                                  % Minimum des 3D-Arrays sigma
-S_max = XXX;                                  % Maximum des 3D-Arrays sigma
+S_min = min(sigma,[],"all");                                  % Minimum des 3D-Arrays sigma
+S_max = max(sigma,[],"all");                                % Maximum des 3D-Arrays sigma
 
 % =========================================================================
 
@@ -31,7 +31,7 @@ hold on;
 set(gca,'YDir','reverse');
 
 videoStress = VideoWriter(['videoStress_',inputname(1),'_Szenario_',res.par.szenario],'MPEG-4');
-videoStress.FrameRate = XXX;
+videoStress.FrameRate = 30;
 
 open(videoStress);
 
@@ -40,19 +40,22 @@ open(videoStress);
 for k = 1:nt
     
     % Spannungen zum Zeitpunkt t_k  
-    s = XXX;
+    s = sigma(:,:,k);
     
     % Figure erstellen
     figure(figNr);
     s = s.';
     
     % Normalspannungsverteilung darstellen
-    XXX; 
+    imagesc(s); 
+    cb = colorbar;
+    cb.Label.String = "Sigma in N/mm^2";
+    colormap(jet);
     
     % Titel und Achsenbeschriftung
     title(['sigma,    t =  ',num2str(t(k)),' s, sigma_{min} = ',...
-        num2str(S_min),' ????, sigma_{max} = ',...
-        num2str(S_max),' ????']);
+        num2str(S_min),' N/mm^2, sigma_{max} = ',...
+        num2str(S_max),' N/mm^2']);
     
     xticks(linspace(1,nx,L+1));
     xticklabels(num2cell(0:L));
@@ -61,9 +64,9 @@ for k = 1:nt
     yticklabels({num2str(-a),'0',num2str(a)});
     ylabel('y in m');
     
-    XXX;                        % Farbgebung spezifizieren  
-    XXX;                        % Farbskala einblenden
-    XXX;                        % Farbskala beschriften
+    %XXX;                        % Farbgebung spezifizieren  
+    %XXX;                        % Farbskala einblenden
+    %XXX;                        % Farbskala beschriften
     axis image;
     
     fr = getframe(gcf);

@@ -33,14 +33,14 @@ for i = 1:nt % zeit
         
         if (X(j) <= b)
           
-            N(i, j) =  XXX;              
-            Q(i, j) =  XXX;              
-            M(i, j) =  XXX;   
+            N(i, j) =  -Zx(i);              
+            Q(i, j) =  rho*A*g*(X(j)-L)-Zy(i);              
+            M(i, j) =  -(1/2)*rho*A*g*(X(j)-L)^2 + Zy(i)*(X(j)-b);   
                     
         else
             
-            Q(i, j) = XXX;         
-            M(i, j) = XXX;      
+            Q(i, j) = rho*A*g*(X(j)-L);         
+            M(i, j) = -(1/2)*rho*A*g*(X(j)-L)^2;      
             
         end % if
         

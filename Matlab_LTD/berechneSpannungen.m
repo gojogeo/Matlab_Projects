@@ -27,8 +27,8 @@ for i = 1:nx            % longitudinalrichtung x
     for j = 1:ny        % transversalrichtung y
         for k = 1:nt    % zeit t
             
-            tau  (i, j, k) = XXX;
-            sigma(i, j, k) = XXX;
+            tau  (i, j, k) = (1/A)*Q(k,i);
+            sigma(i, j, k) = (1/A)*N(k,i) - (M(k,i)/I)*Y(j);
             
         end % for k
     end % for j

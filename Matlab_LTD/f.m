@@ -5,7 +5,7 @@ function uD = f(t, u, par)
 % =========================================================================
 % Dynamische rechte Seite des Kranpendels 
 
-disp(t);                               % Kontrolle waehrend Zeitintegration
+disp(t)                               % Kontrolle waehrend Zeitintegration
 
 % =========================================================================
 % Benoetigte Parameter auslesen

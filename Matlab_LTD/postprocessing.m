@@ -67,13 +67,20 @@ disp('postprocessing...');
     res.Zy = Zy;
         
 % Berechne Schnittgroessen (AUFGABE 5)
-%XXX
+[N, Q, M] = berechneSchnittgroessen(t, X, Zx, Zy, par);
 
     % Resultate speichern
-    %XXX
+    res.N = N;
+    res.Q = Q;
+    res.M = M;
+
+[sigma, tau] = berechneSpannungen(t, X, Y, N, Q, M, par);
+
+    res.sigma = sigma;
+    res.tau = tau;
 
 % Berechne Spannungen (AUFGABE 6)
-%XXX
+
 
     % Resultate speichern
     %XXX
