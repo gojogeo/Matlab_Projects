@@ -17,7 +17,7 @@ clc;                    % Kommandozeile loeschen
 format  long e;         % Anzeige Fliesskommaarithmetik lang (vollstaendig)
 format short e;         % Anzeige Fliesskommaarithmetik kurz
 
-szenario = 'b';         % Auswahl des Berechnunsszenarios
+szenario = 'a';         % Auswahl des Berechnunsszenarios
 Vgl = 0;                % Aktivierung des Vergleichs von ode45 und ode23
 
 % =========================================================================

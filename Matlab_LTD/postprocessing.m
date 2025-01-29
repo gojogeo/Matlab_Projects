@@ -56,11 +56,16 @@ disp('postprocessing...');
     res.E = E;
     
 % Berechne Stabkraft (AUFGABE 4)
-%XXX
+[phiDD, xDD, yDD, Z, Zx, Zy] = berechneStabkraft(t, phi, phiD, par);
 
     % Resultate speichern
-    %XXX
-    
+    res.phiDD = phiDD;
+    res.xDD = xDD;
+    res.yDD = yDD;
+    res.Z = Z;
+    res.Zx = Zx;
+    res.Zy = Zy;
+        
 % Berechne Schnittgroessen (AUFGABE 5)
 %XXX
 

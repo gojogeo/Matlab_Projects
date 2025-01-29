@@ -36,29 +36,33 @@ disp('berechne Stabkraft');
 
 for n = 1:N
     
-    Fe = XXX;
-        
-    A = [
-        XXX
-        ];
+    Fe = externeKraft(t(n), par);
+    syms phi_DD x_DD y_DD Z_x Z_y
+    eqn1 = (m*l^2)*phi_DD == (-m*g*l*sin(phi(n)))-(d*(l^2)*phiD(n))+(Fe*l);
+    eqn2 = (-l*cos(phi(n)))*phi_DD + x_DD == -l*(phiD(n)^2)*sin(phi(n));
+    eqn3 = (-l*sin(phi(n)))*phi_DD + y_DD == l*(phiD(n)^2)*cos(phi(n));
+    eqn4 = m*x_DD - Z_x == (-d*l*phiD(n)*cos(phi(n)))+Fe*cos(phi(n));
+    eqn5 = m*y_DD - Z_y == (-m*g)-(d*l*phiD(n)*sin(phi(n)))+Fe*sin(phi(n));
     
-    Y = [
-        XXX
-        ];
+    %[A, Y] = equationsToMatrix([eqn1, eqn2, eqn3, eqn4, eqn5],[phi_DD, x_DD, y_DD, Z_x, Z_y]);
+
+    %A = [XXX];
     
-    X = XXX;
+    %Y = [XXX];
     
+    %X = linsolve(A,Y);
+    sol = solve([eqn1, eqn2, eqn3, eqn4, eqn5],[phi_DD, x_DD, y_DD, Z_x, Z_y]);
     % Beschleunigungen
-    phiDD(n) = XXX;
-    xDD(n) = XXX;
-    yDD(n) = XXX;  
+    phiDD(n) = sol.phi_DD;
+    xDD(n) = sol.x_DD;
+    yDD(n) = sol.y_DD;  
     
     % Zwangskraftkomponenten
-    Zx(n) = XXX;
-    Zy(n) = XXX;
+    Zx(n) = sol.Z_x;
+    Zy(n) = sol.Z_y;
     
     % Berechne Radialkomponente Z der Stabkraft
-    Z(n) = XXX;
+    Z(n) = sqrt(sol.Z_x^2 + sol.Z_y^2);
     
 end % for n
 
