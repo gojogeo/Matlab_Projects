@@ -17,8 +17,8 @@ clc;                    % Kommandozeile loeschen
 format  long e;         % Anzeige Fliesskommaarithmetik lang (vollstaendig)
 format short e;         % Anzeige Fliesskommaarithmetik kurz
 
-szenario = 'a';         % Auswahl des Berechnunsszenarios
-Vgl = 0;                % Aktivierung des Vergleichs von ode45 und ode23
+szenario = 'd';         % Auswahl des Berechnunsszenarios
+Vgl = 1;                % Aktivierung des Vergleichs von ode45 und ode23
 
 % =========================================================================
 % =========================================================================
@@ -58,7 +58,7 @@ if Vgl == 1
     figure('Name','Vergleich','NumberTitle','off');
     
     % Plot der Gesamtenergie E aus resOde45:
-    %XXX;
+    plot(resOde45.t, resOde45.E);
     
     le{1} = ['ode45, Tol = 10^{-',num2str(Ex),'}'];
     hold on;
@@ -70,10 +70,10 @@ if Vgl == 1
         resOde23 = struct;
         
         % Aufruf von analyseKran.m
-        %resOde23 = XXX;
+        resOde23 = analyseKran(solver,Tol,szenario,resOde23);
         
         % Plot der Gesamtenergie E aus resOde23:
-        %XXX;
+        plot(resOde23.t, resOde23.E);
 
         le{Ex} = ['ode23, Tol = 10^{-',num2str(Ex),'}'];
 
@@ -81,7 +81,7 @@ if Vgl == 1
     
     % Legende und Achsenbeschriftung
     
-    %XXX;
+    legend(le);
     %XXX;
     %XXX;
     %XXX;
